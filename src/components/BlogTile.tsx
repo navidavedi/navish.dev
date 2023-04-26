@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import TagPills from "./TagPill";
-import { getStrapiMedia } from "../../lib/media";
+import { getStrapiMedia, imageLoader } from "../../lib/media";
 import Image from "next/image";
 
 export type tag = {
@@ -44,6 +44,7 @@ const BlogTile: React.FC<BlogTileProps> = ({
 						<Image
 							src={getStrapiMedia(imageObj)}
 							alt="Green double couch with wooden legs"
+							loader={imageLoader}
 							fill
 						/>
 					</Box>

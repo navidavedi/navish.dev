@@ -5,10 +5,11 @@ import { Box, Container, Heading } from "@chakra-ui/react";
 import { fetchAPI } from "../../../lib/api";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { getStrapiMedia } from "../../../lib/media";
-import Layout from "@/containers/layout";
+import { getStrapiMedia, imageLoader } from "../../../lib/media";
+import Layout from "@/containers/Layout";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import Link from "next/link";
+// import { imageLoader } from "../../../loader";
 
 export type metaSocial = {
 	socialNetwork: "Twitter" | "Facebook";
@@ -95,6 +96,7 @@ const Blog: React.FC<BlogProps> = ({ content, heading, seo, image }) => {
 				<Box height={"300px"} width={"100%"} position={"relative"}>
 					<Image
 						fill
+						loader={imageLoader}
 						src={getStrapiMedia(image)}
 						alt={image?.data?.attributes?.alternativeText || ""}
 					/>

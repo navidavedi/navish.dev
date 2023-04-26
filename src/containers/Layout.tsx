@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "@/styles/Home.module.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
@@ -21,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo, slug }) => {
 			<header>
 				<HeroComponent />
 			</header>
-			<main className={`${styles.main} ${inter.className}`}>
+			<main>
 				<Container maxWidth={"container.lg"} pt={"100px"} position={"relative"}>
 					{children}
 				</Container>

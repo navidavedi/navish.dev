@@ -8,20 +8,13 @@ import {
 } from "@chakra-ui/react";
 import { fetchAPI } from "../../lib/api";
 import BlogTile from "@/components/BlogTile";
-import Layout from "@/containers/layout";
-import {
-	FaFacebookSquare,
-	FaInstagram,
-	FaStackOverflow,
-	FaGithub,
-} from "react-icons/fa";
-import Link from "next/link";
+import Layout from "@/containers/Layout";
 
 type HomeProps = {
 	blogs: any;
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const data = await fetchAPI("/blogs", {
 		populate: ["tags.image", "Image"],
 	});

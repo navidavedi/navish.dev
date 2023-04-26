@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import { imageLoader } from "../../lib/media";
 
 export const HeroComponent = () => {
 	return (
@@ -32,14 +34,21 @@ export const HeroComponent = () => {
 							justifyContent={"center"}
 							gap={5}
 						>
-							<Avatar
+							<Box
 								ml={{ base: "0", lg: "50px" }}
 								position={{ base: "relative", lg: "absolute" }}
-								src={"/navish_davedi_th.jpeg"}
-								height={{ base: "150px", lg: "250px" }}
-								width={{ base: "150px", lg: "250px" }}
+								width={250}
+								height={250}
+								overflow={"hidden"}
+								borderRadius={"100%"}
 							>
-								<Box
+								<Image
+									loader={imageLoader}
+									src={"/navish_davedi_th.jpeg"}
+									alt={"Navish Davedi"}
+									fill
+								/>
+								{/* <Box
 									backgroundColor={"#62937C"}
 									height={{ base: "20px", lg: "50px" }}
 									width={{ base: "20px", lg: "50px" }}
@@ -47,9 +56,19 @@ export const HeroComponent = () => {
 									position={"absolute"}
 									bottom={0}
 									right={"10px"}
-									boxShadow={"-2px -2px 5px white"}
-								></Box>
-							</Avatar>
+									zIndex={9999}
+									// boxShadow={"-2px -2px 5px white"}
+								></Box> */}
+							</Box>
+							{/* <Avatar
+								ml={{ base: "0", lg: "50px" }}
+								position={{ base: "relative", lg: "absolute" }}
+								src={"navish_davedi_th.jpeg"}
+								height={{ base: "150px", lg: "250px" }}
+								width={{ base: "150px", lg: "250px" }}
+							>
+								
+							</Avatar> */}
 							<Flex>
 								<Flex
 									flexDirection={"column"}
