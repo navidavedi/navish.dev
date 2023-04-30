@@ -1,11 +1,5 @@
-import {
-	Avatar,
-	AvatarBadge,
-	Box,
-	Flex,
-	Heading,
-	Text,
-} from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { fetchAPI } from "../../lib/api";
 import BlogTile from "@/components/BlogTile";
 import Layout from "@/containers/Layout";
@@ -32,14 +26,24 @@ const Home: React.FC<HomeProps> = ({ blogs }) => {
 				<Flex gap={6} wrap={"wrap"} width={"100%"} justifyContent={"center"}>
 					{blogs.length > 0 &&
 						blogs.map((blog: any) => (
-							<BlogTile
+							<motion.div
 								key={blog.id}
-								heading={blog?.attributes?.Heading || ""}
-								excerpt={blog?.attributes?.Excerpt || ""}
-								tags={blog?.attributes?.tags?.data || []}
-								imageObj={blog?.attributes?.Image || {}}
-								link={blog?.attributes?.Slug || ""}
-							/>
+								animate={{ x: 0, opacity: 1 }}
+								initial={{ x: +50, opacity: 0 }}
+								transition={{
+									type: "spring",
+									stiffness: 700,
+									damping: 30,
+								}}
+							>
+								<BlogTile
+									heading={blog?.attributes?.Heading || ""}
+									excerpt={blog?.attributes?.Excerpt || ""}
+									tags={blog?.attributes?.tags?.data || []}
+									imageObj={blog?.attributes?.Image || {}}
+									link={blog?.attributes?.Slug || ""}
+								/>
+							</motion.div>
 						))}
 				</Flex>
 			</Layout>
